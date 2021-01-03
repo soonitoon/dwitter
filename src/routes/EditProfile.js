@@ -1,3 +1,5 @@
 import React from "react";
 
-export default () => <span>E profile</span>;
+const EditProfile = () => <span>E profile</span>;
+
+export default EditProfile;
