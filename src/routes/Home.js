@@ -1,8 +1,23 @@
 import { DBService } from "mybase";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const Home = () => {
   const [dwitte, setDwitte] = useState("");
+  const [dwittes, setDwittes] = useState([]);
+
+  const getDwittes = async () => {
+    const DBdwitte = await DBService.collection("dwitte").get();
+    DBdwitte.forEach((document) => {
+      const dwitteObj = {
+        ...document.data(),
+        id: document.id,
+      };
+      setDwittes((prev) => [dwitteObj, ...prev]);
+    });
+  };
+  useEffect(() => {
+    getDwittes();
+  }, []);
 
   const onSubmit = async (event) => {
     event.preventDefault();
@@ -20,6 +35,7 @@ const Home = () => {
     setDwitte(value);
   };
 
+  console.log(dwittes);
   return (
     <div>
       <form onSubmit={onSubmit}>
@@ -32,6 +48,13 @@ const Home = () => {
         />
         <input type="submit" value="dwitte" />
       </form>
+      <div>
+        {dwittes.map((dw) => (
+          <div key={dw.id}>
+            <h4>{dw.dwitte}</h4>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
