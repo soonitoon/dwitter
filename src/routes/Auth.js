@@ -1,4 +1,4 @@
-import { AuthService } from "mybase";
+import { AuthService, firebaseInstance } from "mybase";
 import React, { useState } from "react";
 
 const Auth = () => {
@@ -40,13 +40,18 @@ const Auth = () => {
     setNewAccount((prev) => !prev);
   };
 
-  const onSocialClick = (event) => {
+  const onSocialClick = async (event) => {
     const {
       target: { name },
     } = event;
+    let provider;
     if (name === "google") {
+      provider = new firebaseInstance.auth.GoogleAuthProvider();
     } else if (name === "github") {
+      provider = new firebaseInstance.auth.GithubAuthProvider();
     }
+    const data = await AuthService.signInWithPopup(provider);
+    console.log(data);
   };
 
   return (
