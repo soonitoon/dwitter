@@ -5,19 +5,14 @@ const Home = ({ userObj }) => {
   const [dwitte, setDwitte] = useState("");
   const [dwittes, setDwittes] = useState([]);
 
-  const getDwittes = async () => {
-    const DBdwitte = await DBService.collection("dwitte").get();
-    DBdwitte.forEach((document) => {
-      const dwitteObj = {
-        ...document.data(),
-        id: document.id,
-      };
-      setDwittes((prev) => [dwitteObj, ...prev]);
-    });
-  };
-
   useEffect(() => {
-    getDwittes();
+    DBService.collection("dwitte").onSnapshot((snapshot) => {
+      const dwitteArray = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      setDwittes(dwitteArray);
+    });
   }, []);
 
   const onSubmit = async (event) => {
@@ -52,7 +47,7 @@ const Home = ({ userObj }) => {
       <div>
         {dwittes.map((dw) => (
           <div key={dw.id}>
-            <h4>{dw.dwitte}</h4>
+            <h4>{dw.text}</h4>
           </div>
         ))}
       </div>
