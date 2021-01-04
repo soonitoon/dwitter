@@ -1,7 +1,7 @@
 import { DBService } from "mybase";
 import React, { useEffect, useState } from "react";
 
-const Home = () => {
+const Home = ({ userObj }) => {
   const [dwitte, setDwitte] = useState("");
   const [dwittes, setDwittes] = useState([]);
 
@@ -15,6 +15,7 @@ const Home = () => {
       setDwittes((prev) => [dwitteObj, ...prev]);
     });
   };
+
   useEffect(() => {
     getDwittes();
   }, []);
@@ -22,8 +23,9 @@ const Home = () => {
   const onSubmit = async (event) => {
     event.preventDefault();
     await DBService.collection("dwitte").add({
-      dwitte,
+      text: dwitte,
       createdAt: Date.now(),
+      createrId: userObj.uid,
     });
     setDwitte("");
   };
@@ -35,7 +37,6 @@ const Home = () => {
     setDwitte(value);
   };
 
-  console.log(dwittes);
   return (
     <div>
       <form onSubmit={onSubmit}>
