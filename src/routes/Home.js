@@ -1,16 +1,25 @@
+import { DBService } from "mybase";
 import React, { useState } from "react";
 
 const Home = () => {
   const [dwitte, setDwitte] = useState("");
-  const onSubmit = (event) => {
+
+  const onSubmit = async (event) => {
     event.preventDefault();
+    await DBService.collection("dwitte").add({
+      dwitte,
+      createdAt: Date.now(),
+    });
+    setDwitte("");
   };
+
   const onChange = (event) => {
     const {
       target: { value },
     } = event;
     setDwitte(value);
   };
+
   return (
     <div>
       <form onSubmit={onSubmit}>
