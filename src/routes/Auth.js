@@ -40,6 +40,15 @@ const Auth = () => {
     setNewAccount((prev) => !prev);
   };
 
+  const onSocialClick = (event) => {
+    const {
+      target: { name },
+    } = event;
+    if (name === "google") {
+    } else if (name === "github") {
+    }
+  };
+
   return (
     <div>
       <form onSubmit={onSubmit}>
@@ -69,8 +78,12 @@ const Auth = () => {
         {newAccount ? "Log In" : "create account"}
       </span>
       <div>
-        <button>Continue with Goolge</button>
-        <button>Continue with Github</button>
+        <button onClick={onSocialClick} name="google">
+          Continue with Goolge
+        </button>
+        <button onClick={onSocialClick} name="github">
+          Continue with Github
+        </button>
       </div>
     </div>
   );
