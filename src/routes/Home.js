@@ -1,5 +1,6 @@
 import { DBService } from "mybase";
 import React, { useEffect, useState } from "react";
+import Dwitte from "components/Dwitte";
 
 const Home = ({ userObj }) => {
   const [dwitte, setDwitte] = useState("");
@@ -46,9 +47,11 @@ const Home = ({ userObj }) => {
       </form>
       <div>
         {dwittes.map((dw) => (
-          <div key={dw.id}>
-            <h4>{dw.text}</h4>
-          </div>
+          <Dwitte
+            key={dw.id}
+            dwitteObj={dw}
+            isOwner={dw.createrId === userObj.uid}
+          />
         ))}
       </div>
     </div>
