@@ -20,15 +20,21 @@ const Home = ({ userObj }) => {
 
   const onSubmit = async (event) => {
     event.preventDefault();
-    const fileRef = storageService.ref().child(`${userObj.uid}/${uuidv4()}`);
-    const response = await fileRef.putString(attachment, "data_url");
-    console.log(response);
-    // await DBService.collection("dwitte").add({
-    //   text: dwitte,
-    //   createdAt: Date.now(),
-    //   createrId: userObj.uid,
-    // });
-    // setDwitte("");
+    const attachmentRef = storageService
+      .ref()
+      .child(`${userObj.uid}/${uuidv4()}`);
+    const response = await attachmentRef.putString(attachment, "data_url");
+    const attachmentURL = await response.ref.getDownloadURL();
+    const dwitteObj = {
+      text: dwitte,
+      createdAt: Date.now(),
+      createrId: userObj.uid,
+      attachmentURL,
+    };
+
+    await DBService.collection("dwitte").add(dwitteObj);
+    setDwitte("");
+    setAttachment("");
   };
 
   const onFileChange = (event) => {

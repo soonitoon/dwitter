@@ -50,6 +50,9 @@ const Dwitte = ({ dwitteObj, isOwner }) => {
       ) : (
         <>
           <h4>{dwitteObj.text}</h4>
+          {dwitteObj.attachmentURL && (
+            <img src={dwitteObj.attachmentURL} width="50px" height="50px" />
+          )}
           {isOwner && (
             <>
               <button onClick={onDeleteClick}>Delete</button>
