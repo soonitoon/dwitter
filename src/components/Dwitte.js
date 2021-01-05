@@ -1,7 +1,10 @@
 import { DBService } from "mybase";
-import React from "react";
+import React, { useState } from "react";
 
 const Dwitte = ({ dwitteObj, isOwner }) => {
+  const [editing, setEditing] = useState(false);
+  const [newDwitte, setNewDwitte] = useState(dwitteObj.text);
+
   const onDeleteClick = async () => {
     const ok = window.confirm("Are you sure?");
     if (ok) {
@@ -9,13 +12,50 @@ const Dwitte = ({ dwitteObj, isOwner }) => {
     }
   };
 
+  const toggleEditing = () => {
+    setEditing((prev) => !prev);
+  };
+
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    await DBService.doc(`dwitte/${dwitteObj.id}`).update({
+      text: newDwitte,
+    });
+    setEditing(false);
+  };
+
+  const onChange = (event) => {
+    const {
+      target: { value },
+    } = event;
+    setNewDwitte(value);
+  };
+
   return (
     <div>
-      <h4>{dwitteObj.text}</h4>
-      {isOwner && (
+      {editing ? (
         <>
-          <button onClick={onDeleteClick}>Delete</button>
-          <button>Edit</button>
+          <form onSubmit={onSubmit}>
+            <input
+              type="text"
+              placeholder="Edit your dwitte"
+              value={newDwitte}
+              required
+              onChange={onChange}
+            />
+            <input type="submit" value="Update" />
+          </form>
+          <button onClick={toggleEditing}>Cancel</button>
+        </>
+      ) : (
+        <>
+          <h4>{dwitteObj.text}</h4>
+          {isOwner && (
+            <>
+              <button onClick={onDeleteClick}>Delete</button>
+              <button onClick={toggleEditing}>Edit</button>
+            </>
+          )}
         </>
       )}
     </div>
