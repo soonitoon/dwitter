@@ -1,4 +1,4 @@
-import { DBService } from "mybase";
+import { DBService, storageService } from "mybase";
 import React, { useState } from "react";
 
 const Dwitte = ({ dwitteObj, isOwner }) => {
@@ -9,6 +9,7 @@ const Dwitte = ({ dwitteObj, isOwner }) => {
     const ok = window.confirm("Are you sure?");
     if (ok) {
       await DBService.doc(`dwitte/${dwitteObj.id}`).delete();
+      await storageService.refFromURL(dwitteObj.attachmentURL).delete();
     }
   };
 
