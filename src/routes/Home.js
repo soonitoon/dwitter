@@ -5,6 +5,7 @@ import Dwitte from "components/Dwitte";
 const Home = ({ userObj }) => {
   const [dwitte, setDwitte] = useState("");
   const [dwittes, setDwittes] = useState([]);
+  const [attachment, setAttachment] = useState("");
 
   useEffect(() => {
     DBService.collection("dwitte").onSnapshot((snapshot) => {
@@ -32,8 +33,11 @@ const Home = ({ userObj }) => {
     } = event;
     const theFile = files[0];
     const reader = new FileReader();
-    reader.onloadend = (fnishedEvent) => {
-      console.log(fnishedEvent);
+    reader.onloadend = (finishedEvent) => {
+      const {
+        currentTarget: { result },
+      } = finishedEvent;
+      setAttachment(result);
     };
     reader.readAsDataURL(theFile);
   };
@@ -43,6 +47,10 @@ const Home = ({ userObj }) => {
       target: { value },
     } = event;
     setDwitte(value);
+  };
+
+  const onClearAttachmentClick = () => {
+    setAttachment(null);
   };
 
   return (
@@ -57,6 +65,12 @@ const Home = ({ userObj }) => {
         />
         <input type="file" accept="image/*" onChange={onFileChange} />
         <input type="submit" value="dwitte" />
+        {attachment && (
+          <div>
+            <img src={attachment} width="50px" height="50px" />
+            <button onClick={onClearAttachmentClick}>Clear</button>
+          </div>
+        )}
       </form>
       <div>
         {dwittes.map((dw) => (
