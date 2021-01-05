@@ -1,5 +1,6 @@
-import { DBService } from "mybase";
+import { DBService, storageService } from "mybase";
 import React, { useEffect, useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 import Dwitte from "components/Dwitte";
 
 const Home = ({ userObj }) => {
@@ -19,12 +20,15 @@ const Home = ({ userObj }) => {
 
   const onSubmit = async (event) => {
     event.preventDefault();
-    await DBService.collection("dwitte").add({
-      text: dwitte,
-      createdAt: Date.now(),
-      createrId: userObj.uid,
-    });
-    setDwitte("");
+    const fileRef = storageService.ref().child(`${userObj.uid}/${uuidv4()}`);
+    const response = await fileRef.putString(attachment, "data_url");
+    console.log(response);
+    // await DBService.collection("dwitte").add({
+    //   text: dwitte,
+    //   createdAt: Date.now(),
+    //   createrId: userObj.uid,
+    // });
+    // setDwitte("");
   };
 
   const onFileChange = (event) => {
