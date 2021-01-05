@@ -20,11 +20,14 @@ const Home = ({ userObj }) => {
 
   const onSubmit = async (event) => {
     event.preventDefault();
-    const attachmentRef = storageService
-      .ref()
-      .child(`${userObj.uid}/${uuidv4()}`);
-    const response = await attachmentRef.putString(attachment, "data_url");
-    const attachmentURL = await response.ref.getDownloadURL();
+    let attachmentURL = "";
+    if (attachment != "") {
+      const attachmentRef = storageService
+        .ref()
+        .child(`${userObj.uid}/${uuidv4()}`);
+      const response = await attachmentRef.putString(attachment, "data_url");
+      attachmentURL = await response.ref.getDownloadURL();
+    }
     const dwitteObj = {
       text: dwitte,
       createdAt: Date.now(),
