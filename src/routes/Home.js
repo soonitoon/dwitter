@@ -26,6 +26,18 @@ const Home = ({ userObj }) => {
     setDwitte("");
   };
 
+  const onFileChange = (event) => {
+    const {
+      target: { files },
+    } = event;
+    const theFile = files[0];
+    const reader = new FileReader();
+    reader.onloadend = (fnishedEvent) => {
+      console.log(fnishedEvent);
+    };
+    reader.readAsDataURL(theFile);
+  };
+
   const onChange = (event) => {
     const {
       target: { value },
@@ -43,6 +55,7 @@ const Home = ({ userObj }) => {
           placeholder="What's your mind?"
           maxLength={120}
         />
+        <input type="file" accept="image/*" onChange={onFileChange} />
         <input type="submit" value="dwitte" />
       </form>
       <div>
