@@ -31,7 +31,7 @@ const Home = ({ userObj }) => {
     const dwitteObj = {
       text: dwitte,
       createdAt: Date.now(),
-      createrId: userObj.uid,
+      creatorId: userObj.uid,
       attachmentURL,
     };
 
@@ -90,7 +90,7 @@ const Home = ({ userObj }) => {
           <Dwitte
             key={dw.id}
             dwitteObj={dw}
-            isOwner={dw.createrId === userObj.uid}
+            isOwner={dw.creatorId === userObj.uid}
           />
         ))}
       </div>

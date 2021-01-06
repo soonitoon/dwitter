@@ -10,12 +10,16 @@ const Profile = ({ userObj }) => {
   };
 
   const getMyDwittes = async () => {
-    const dwittes = await DBService.collection("dwittes").where();
+    const dwittes = await DBService.collection("dwitte")
+      .where("creatorId", "==", userObj.uid)
+      .orderBy("createdAt")
+      .get();
+    console.log(dwittes.docs.map((doc) => doc.data()));
   };
 
-  // useEffect(() => {
-  //   getMyDwittes();
-  // }, []);
+  useEffect(() => {
+    getMyDwittes();
+  }, []);
 
   return (
     <>
