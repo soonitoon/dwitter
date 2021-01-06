@@ -1,13 +1,21 @@
-import { AuthService } from "mybase";
-import React from "react";
+import { AuthService, DBService } from "mybase";
+import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
-const Profile = () => {
+const Profile = ({ userObj }) => {
   const history = useHistory();
   const onLogoutClick = () => {
     AuthService.signOut();
     history.push("/");
   };
+
+  const getMyDwittes = async () => {
+    const dwittes = await DBService.collection("dwittes").where();
+  };
+
+  // useEffect(() => {
+  //   getMyDwittes();
+  // }, []);
 
   return (
     <>

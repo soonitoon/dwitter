@@ -46,13 +46,13 @@ const Home = ({ userObj }) => {
     } = event;
     const theFile = files[0];
     const reader = new FileReader();
+    reader.readAsDataURL(theFile);
     reader.onloadend = (finishedEvent) => {
       const {
         currentTarget: { result },
       } = finishedEvent;
       setAttachment(result);
     };
-    reader.readAsDataURL(theFile);
   };
 
   const onChange = (event) => {
