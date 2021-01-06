@@ -18,13 +18,21 @@ const Profile = ({ userObj }) => {
     console.log(dwittes.docs.map((doc) => doc.data()));
   };
 
-  const onSubmit = (event) => {
+  const onSubmit = async (event) => {
     event.preventDefault();
     if (userObj.displayName !== newDisplayName) {
+      await userObj.updateProfile({
+        displayName: newDisplayName,
+      });
     }
   };
 
-  const onChange = (event) => {};
+  const onChange = (event) => {
+    const {
+      target: { value },
+    } = event;
+    setNewDisplayName(value);
+  };
 
   useEffect(() => {
     getMyDwittes();
