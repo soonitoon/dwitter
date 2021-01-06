@@ -25,13 +25,12 @@ function App() {
     });
   }, []);
 
-  const refreshUser = () => {
-    const User = AuthService.currentUser;
+  const refreshUserObj = (newDisplayName) => {
     setUserObj({
-      displayName: User.displayName,
-      uid: User.uid,
+      displayName: newDisplayName,
+      uid: userObj.uid,
       updateProfile: (newProfile) => {
-        User.updateProfile(newProfile);
+        userObj.updateProfile(newProfile);
       },
     });
   };
@@ -40,7 +39,7 @@ function App() {
     <>
       {init ? (
         <AppRouter
-          refreshUser={refreshUser}
+          refreshUserObj={refreshUserObj}
           isLoggedIn={isLoggedIn}
           userObj={userObj}
         />

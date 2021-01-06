@@ -2,7 +2,7 @@ import { AuthService, DBService } from "mybase";
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 
-const Profile = ({ userObj, refreshUser }) => {
+const Profile = ({ userObj, refreshUserObj }) => {
   const history = useHistory();
   const [newDisplayName, setNewDisplayName] = useState(userObj.displayName);
   const onLogoutClick = () => {
@@ -15,7 +15,6 @@ const Profile = ({ userObj, refreshUser }) => {
       .where("creatorId", "==", userObj.uid)
       .orderBy("createdAt")
       .get();
-    console.log(dwittes.docs.map((doc) => doc.data()));
   };
 
   const onSubmit = async (event) => {
@@ -24,7 +23,7 @@ const Profile = ({ userObj, refreshUser }) => {
       await userObj.updateProfile({
         displayName: newDisplayName,
       });
-      refreshUser();
+      refreshUserObj(newDisplayName);
     }
   };
 
