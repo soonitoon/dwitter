@@ -11,13 +11,23 @@ function App() {
     AuthService.onAuthStateChanged((User) => {
       if (User) {
         setIsLoggedIn(true);
-        setUserObj({
-          displayName: User.displayName,
-          uid: User.uid,
-          updateProfile: (newProfile) => {
-            User.updateProfile(newProfile);
-          },
-        });
+        if (User.display) {
+          setUserObj({
+            displayName: User.displayName,
+            uid: User.uid,
+            updateProfile: (newProfile) => {
+              User.updateProfile(newProfile);
+            },
+          });
+        } else {
+          setUserObj({
+            displayName: "username",
+            uid: User.uid,
+            updateProfile: (newProfile) => {
+              User.updateProfile(newProfile);
+            },
+          });
+        }
       } else {
         setIsLoggedIn(false);
       }

@@ -1,6 +1,6 @@
 import React from "react";
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
-import Auth from "routes/Auth";
+import AuthForm from "routes/AuthForm";
 import Home from "routes/Home";
 import Navigation from "components/Navigation";
 import Profile from "routes/Profile";
@@ -21,7 +21,7 @@ const AppRouter = ({ isLoggedIn, userObj, refreshUserObj }) => {
           </>
         ) : (
           <Route exact path="/">
-            <Auth />
+            <AuthForm />
           </Route>
         )}
       </Switch>

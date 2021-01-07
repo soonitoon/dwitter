@@ -1,0 +1,50 @@
+@import url("reset.css");
+
+.AuthContainer {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+
+.leftSide {
+  background-color: #1da1f2;
+  height: 93vh;
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.leftSide .textBox .eachText {
+  display: flex;
+}
+
+.leftSide .textBox .eachText .icon {
+  font-size: 13px;
+  font-weight: bold;
+  color: white;
+  margin: 12px 10px 12px 0;
+}
+
+.leftSide .textBox .eachText h3 {
+  font-size: 9px;
+  font-weight: bold;
+  color: white;
+  margin: 12px 0 12px 0;
+}
+
+.rightSide {
+  background-color: #15202b;
+  height: 93vh;
+  width: 50vw;
+}
+.AuthFooter {
+  background-color: #15202b;
+  color: gray;
+  height: 7vh;
+  width: 100vw;
+  text-align: center;
+}
