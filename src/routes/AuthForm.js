@@ -60,35 +60,60 @@ const AuthForm = () => {
         </div>
       </div>
       <div className="rightSide">
-        <form onSubmit={onSubmit}>
-          <input
-            name="email"
-            type="text"
-            placeholder="Email"
-            required
-            value={email}
-            onChange={onChange}
-          ></input>
-          <input
-            name="password"
-            type="password"
-            placeholder="Password"
-            required
-            value={password}
-            onChange={onChange}
-          ></input>
+        <form onSubmit={onSubmit} className="emailLoginForm">
+          <div className="emailContainer">
+            <div className="emailInputContainer">
+              <p className="emailInputPlaceholder">사용자 이메일</p>
+              <input
+                name="email"
+                type="text"
+                required
+                value={email}
+                onChange={onChange}
+                className="emailInput"
+              ></input>
+            </div>
+            <span>{error}</span>
+          </div>
+          <div className="passwordContainer">
+            <div className="passwordInputContainer">
+              <p className="passwordInputPlaceholder">비밀번호</p>
+              <input
+                name="password"
+                type="password"
+                required
+                value={password}
+                onChange={onChange}
+                className="passwordInput"
+              ></input>
+            </div>
+            <button onClick={toggleAccount} className="toggle">
+              {newAccount ? "계정이 있나요?" : "계정 만들기"}
+            </button>
+          </div>
           <input
             type="submit"
             value={newAccount ? "Create Account" : "Log in"}
           ></input>
-          <button onClick={toggleAccount}>
-            {newAccount ? "로그인" : "계정 생성"}
-          </button>
         </form>
-        <AuthWithSocial />
-        <span>{error}</span>
+        <div>
+          <AuthWithSocial />
+        </div>
       </div>
-      <footer className="AuthFooter">im footer</footer>
+      <footer className="AuthFooter">
+        <div className="aContainer">
+          <a>맞아요</a>
+          <a>이건</a>
+          <a>footer</a>
+          <a>입니다</a>
+          <a>아무도</a>
+          <a>보지않죠</a>
+          <a>그저</a>
+          <a>자리를</a>
+          <a>묵묵히</a>
+          <a>지킵니다</a>
+        </div>
+      </footer>
     </div>
   );
 };

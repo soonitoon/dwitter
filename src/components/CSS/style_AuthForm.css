@@ -18,33 +18,105 @@
   align-items: center;
 }
 
-.leftSide .textBox .eachText {
+.eachText {
   display: flex;
+  align-items: center;
 }
 
-.leftSide .textBox .eachText .icon {
-  font-size: 13px;
+.icon {
+  font-size: 27px;
   font-weight: bold;
   color: white;
   margin: 12px 10px 12px 0;
 }
 
-.leftSide .textBox .eachText h3 {
-  font-size: 9px;
+.eachText h3 {
+  font-size: 22px;
   font-weight: bold;
   color: white;
-  margin: 12px 0 12px 0;
+  margin: 30px 0 30px 0;
 }
 
 .rightSide {
   background-color: #15202b;
   height: 93vh;
   width: 50vw;
+  display: flex;
+  flex-direction: column;
 }
+
+.emailLoginForm {
+  width: 50vw;
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.passwordContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.toggle {
+  background-color: #15202b;
+  color: #1da1f2;
+  border: none;
+}
+
+.toggle:focus {
+  outline: none;
+}
+
+.toggle:hover {
+  text-decoration: underline;
+}
+
+.emailInputContainer,
+.passwordInputContainer {
+  border: 1px solid #3d5466;
+  border-radius: 5px;
+  padding: 10px;
+  color: #3d5466;
+  margin: 0 10px;
+  width: 200px;
+  height: 35px;
+}
+
+.emailInputPlaceholder,
+.passwordInputPlaceholder {
+  font-weight: lighter;
+}
+
+.emailInput,
+.passwordInput {
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+  border: none;
+  font-size: 20px;
+  width: 180px;
+  overflow: hidden;
+}
+
+.emailInput,
+.passwordInput:focus {
+  outline: none;
+}
+
 .AuthFooter {
   background-color: #15202b;
-  color: gray;
   height: 7vh;
   width: 100vw;
-  text-align: center;
+}
+.aContainer {
+  height: 7vh;
+  margin: auto 0;
+  font-weight: lighter;
+  padding: 0 120px 0 120px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: gray;
+}
+.aContainer a {
+  font-size: 13px;
 }
