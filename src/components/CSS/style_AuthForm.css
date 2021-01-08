@@ -1,21 +1,40 @@
 @import url("reset.css");
 
+body {
+  overflow: hidden;
+}
+
 .AuthContainer {
   height: 100vh;
   width: 100vw;
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;
+  z-index: 0;
 }
 
 .leftSide {
-  background-color: #1da1f2;
+  background-color: #74cafe;
   height: 93vh;
   width: 50vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  z-index: -1;
+}
+
+.backgroundIcon {
+  font-size: 1200px;
+  position: absolute;
+  color: #1da1f2;
+  top: -250px;
+  left: -50px;
+  z-index: -2;
+}
+
+.textBox {
+  margin-left: 60px;
 }
 
 .eachText {
@@ -31,7 +50,7 @@
 }
 
 .eachText h3 {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: bold;
   color: white;
   margin: 30px 0 30px 0;
@@ -43,6 +62,7 @@
   width: 50vw;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .emailLoginForm {
@@ -61,6 +81,7 @@
   background-color: #15202b;
   color: #1da1f2;
   border: none;
+  position: relative;
 }
 
 .toggle:focus {
@@ -82,9 +103,19 @@
   height: 35px;
 }
 
+.getBlue {
+  border: 3px solid #1da1f2;
+  padding: 8px;
+  color: #1da1f2;
+}
+
 .emailInputPlaceholder,
 .passwordInputPlaceholder {
   font-weight: lighter;
+}
+
+.passwordInputContainer {
+  margin-bottom: 10px;
 }
 
 .emailInput,
@@ -100,6 +131,91 @@
 .emailInput,
 .passwordInput:focus {
   outline: none;
+}
+
+.submitAccount {
+  border: 3px solid #1da1f2;
+  border-radius: 40px;
+  color: #1da1f2;
+  background-color: rgba(0, 0, 0, 0.3);
+  height: 45px;
+  width: 80px;
+  margin-top: 5.5px;
+  font-size: 15px;
+  font-weight: 600;
+  transition-duration: 0.2s;
+}
+
+.submitAccount:focus {
+  outline: none;
+}
+
+.submitAccount:hover {
+  background-color: rgba(29, 161, 242, 0.2);
+}
+
+.rightDown {
+  margin-top: 100px;
+}
+
+.rightDown .dwitteIcon {
+  font-size: 50px;
+  color: white;
+}
+
+.rightDown .title {
+  color: white;
+  font-size: 28px;
+  font-weight: bold;
+  line-height: 40px;
+  margin: 20px 0 40px 0;
+}
+
+.socialContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.googleButton,
+.githubButton {
+  border: none;
+  margin: 10px 0;
+  height: 40px;
+  border-radius: 20px;
+  color: white;
+  font-size: 17px;
+  font-weight: bold;
+  transition-duration: 0.2s;
+}
+
+.googleButton:focus,
+.githubButton:focus {
+  outline: none;
+}
+
+.googleButton {
+  background-color: #1da1f2;
+}
+
+.googleButton:hover {
+  background-color: rgba(29, 161, 242, 0.8);
+}
+
+.githubButton {
+  background-color: rgba(0, 0, 0, 0);
+  border: 1px solid #1da1f2;
+  color: #1da1f2;
+}
+
+.githubButton:hover {
+  background-color: rgba(29, 161, 242, 0.2);
+}
+
+.socialTitle {
+  color: white;
+  font-size: 17px;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
 .AuthFooter {

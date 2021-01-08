@@ -15,12 +15,13 @@ const AuthWithSocial = () => {
     await AuthService.signInWithPopup(provider);
   };
   return (
-    <div>
-      <button onClick={onSocialClick} name="google">
-        Continue with Goolge
+    <div className="socialContainer">
+      <h1 className="socialTitle">기존 계정으로 가입하세요.</h1>
+      <button onClick={onSocialClick} name="google" className="googleButton">
+        Goolge로 가입하기
       </button>
-      <button onClick={onSocialClick} name="github">
-        Continue with Github
+      <button onClick={onSocialClick} name="github" className="githubButton">
+        Github으로 가입하기
       </button>
     </div>
   );
