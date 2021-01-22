@@ -10,8 +10,9 @@ function App() {
   useEffect(() => {
     AuthService.onAuthStateChanged((User) => {
       if (User) {
+        console.log(User);
         setIsLoggedIn(true);
-        if (User.displayName === "") {
+        if (User.displayName) {
           setUserObj({
             displayName: User.displayName,
             uid: User.uid,
