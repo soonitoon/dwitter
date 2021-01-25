@@ -52,7 +52,7 @@ const DwitteFactory = ({ userObj }) => {
     setAttachment(null);
   };
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={onSubmit} className="dwitteForm">
       <input
         value={dwitte}
         onChange={onChange}

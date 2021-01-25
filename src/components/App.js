@@ -10,25 +10,14 @@ function App() {
   useEffect(() => {
     AuthService.onAuthStateChanged((User) => {
       if (User) {
-        console.log(User);
+        setUserObj({
+          displayName: User.displayName,
+          uid: User.uid,
+          updateProfile: (newProfile) => {
+            User.updateProfile(newProfile);
+          },
+        });
         setIsLoggedIn(true);
-        if (User.displayName) {
-          setUserObj({
-            displayName: User.displayName,
-            uid: User.uid,
-            updateProfile: (newProfile) => {
-              User.updateProfile(newProfile);
-            },
-          });
-        } else {
-          setUserObj({
-            displayName: "username",
-            uid: User.uid,
-            updateProfile: (newProfile) => {
-              User.updateProfile(newProfile);
-            },
-          });
-        }
       } else {
         setIsLoggedIn(false);
       }

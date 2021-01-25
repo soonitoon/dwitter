@@ -54,4 +54,13 @@ nav {
 
 .dwitteContainer {
   flex: 1.5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dwitteForm {
+  height: 25%;
+  width: 100%;
+  border-bottom: solid 1px darkgray;
 }
