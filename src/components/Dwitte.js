@@ -1,7 +1,8 @@
 import { DBService, storageService } from "mybase";
 import React, { useState } from "react";
+import { BsFillTrashFill, BsPencilSquare } from "react-icons/bs";
 
-const Dwitte = ({ dwitteObj, isOwner }) => {
+const Dwitte = ({ dwitteObj, isOwner, userName }) => {
   const [editing, setEditing] = useState(false);
   const [newDwitte, setNewDwitte] = useState(dwitteObj.text);
 
@@ -33,7 +34,7 @@ const Dwitte = ({ dwitteObj, isOwner }) => {
   };
 
   return (
-    <div>
+    <div className="dwitte">
       {editing ? (
         <>
           <form onSubmit={onSubmit}>
@@ -50,15 +51,25 @@ const Dwitte = ({ dwitteObj, isOwner }) => {
         </>
       ) : (
         <>
-          <h4>{dwitteObj.text}</h4>
+          <h4>{userName}</h4>
+          <h4 className="dwitteText">{dwitteObj.text}</h4>
           {dwitteObj.attachmentURL && (
-            <img src={dwitteObj.attachmentURL} width="50px" height="50px" />
+            <img
+              src={dwitteObj.attachmentURL}
+              width="70px"
+              height="70px"
+              className="attachmentImg"
+            />
           )}
           {isOwner && (
-            <>
-              <button onClick={onDeleteClick}>Delete</button>
-              <button onClick={toggleEditing}>Edit</button>
-            </>
+            <div className="dwitteBtnContainer">
+              <button onClick={onDeleteClick} className="dwitteBtn">
+                <BsFillTrashFill />
+              </button>
+              <button onClick={toggleEditing} className="dwitteBtn">
+                <BsPencilSquare />
+              </button>
+            </div>
           )}
         </>
       )}

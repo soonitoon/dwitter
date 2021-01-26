@@ -19,13 +19,14 @@ const Home = ({ userObj }) => {
 
   return (
     <>
-      <div className="dwitteContainer">
+      <div className="centerContainer">
         <DwitteFactory userObj={userObj} />
-        <div>
+        <div className="dwitteContainer">
           {dwittes.map((dw) => (
             <Dwitte
               key={dw.id}
               dwitteObj={dw}
+              userName={userObj.displayName}
               isOwner={dw.creatorId === userObj.uid}
             />
           ))}

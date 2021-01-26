@@ -5,6 +5,8 @@ import { v4 as uuidv4 } from "uuid";
 const DwitteFactory = ({ userObj }) => {
   const [dwitte, setDwitte] = useState("");
   const [attachment, setAttachment] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
+
   const onFileChange = (event) => {
     const {
       target: { files },
@@ -26,48 +28,70 @@ const DwitteFactory = ({ userObj }) => {
     } = event;
     setDwitte(value);
   };
-  const onSubmit = async (event) => {
-    event.preventDefault();
-    let attachmentURL = "";
-    if (attachment != "") {
-      const attachmentRef = storageService
-        .ref()
-        .child(`${userObj.uid}/${uuidv4()}`);
-      const response = await attachmentRef.putString(attachment, "data_url");
-      attachmentURL = await response.ref.getDownloadURL();
-    }
-    const dwitteObj = {
-      text: dwitte,
-      createdAt: Date.now(),
-      creatorId: userObj.uid,
-      attachmentURL,
-    };
 
-    await DBService.collection("dwitte").add(dwitteObj);
-    setDwitte("");
-    setAttachment("");
+  const onSubmit = async (event) => {
+    if (dwitte !== "") {
+      event.preventDefault();
+      let attachmentURL = "";
+      if (attachment != "") {
+        const attachmentRef = storageService
+          .ref()
+          .child(`${userObj.uid}/${uuidv4()}`);
+        const response = await attachmentRef.putString(attachment, "data_url");
+        attachmentURL = await response.ref.getDownloadURL();
+      }
+      const dwitteObj = {
+        text: dwitte,
+        createdAt: Date.now(),
+        creatorId: userObj.uid,
+        attachmentURL,
+      };
+      await DBService.collection("dwitte").add(dwitteObj);
+      setDwitte("");
+      setAttachment("");
+      setErrorMsg("");
+    } else {
+      setErrorMsg("no dwitte!");
+    }
   };
 
   const onClearAttachmentClick = () => {
     setAttachment(null);
   };
+
   return (
     <form onSubmit={onSubmit} className="dwitteForm">
+      <div className="dwitteInputContainer">
+        <input
+          value={dwitte}
+          onChange={onChange}
+          type="text"
+          placeholder="What's your mind?"
+          maxLength={120}
+          className="dwitteInput"
+        />
+        <p className="dwitteErrorMsg">{errorMsg}</p>
+      </div>
+      <label for="fileInput" className="fileUploadBtn">
+        사진
+      </label>
       <input
-        value={dwitte}
-        onChange={onChange}
-        type="text"
-        placeholder="What's your mind?"
-        maxLength={120}
+        type="file"
+        accept="image/*"
+        onChange={onFileChange}
+        id="fileInput"
+        className="fileInput"
       />
-      <input type="file" accept="image/*" onChange={onFileChange} />
-      <input type="submit" value="dwitte" />
       {attachment && (
-        <div>
+        <div className="attachmentContainer">
           <img src={attachment} width="50px" height="50px" />
-          <button onClick={onClearAttachmentClick}>Clear</button>
+          <br />
+          <button onClick={onClearAttachmentClick} className="clearAttachment">
+            X
+          </button>
         </div>
       )}
+      <input type="submit" value="dwitte" className="submitDwitte" />
     </form>
   );
 };
