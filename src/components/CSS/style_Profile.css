@@ -37,6 +37,11 @@
   font-weight: bold;
   border: none;
   border-radius: 10px;
+  transition-duration: 0.2s;
+}
+
+.submitNewUserName:hover {
+  background-color: rgba(29, 161, 242, 0.8);
 }
 
 .logOut {
@@ -49,6 +54,10 @@
   font-weight: bold;
   border: none;
   border-radius: 10px;
+  transition-duration: 0.2s;
+}
+.logOut:hover {
+  background-color: rgba(234, 67, 53, 0.8);
 }
 
 .submitNewUserName:focus,
