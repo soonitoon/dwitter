@@ -60,7 +60,7 @@ nav {
 }
 
 .dwitteForm {
-  height: 20%;
+  height: 10%;
   width: 100%;
   padding: 50px 0;
   border-bottom: solid 1px darkgray;
@@ -167,20 +167,29 @@ nav {
 
 .dwitte {
   width: 300px;
-  height: 80px;
+  min-height: 80px;
   flex: 0 0 auto;
   background-color: white;
   margin: 20px 0;
   border: 3px solid #1da1f2;
   border-radius: 10px;
   position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
+}
+
+.context {
+  margin: 5px 5px;
+}
+
+.userName {
+  font-size: large;
+  font-weight: bolder;
+  margin-bottom: 10px;
 }
 
 .dwitteText {
+  width: 80%;
+  font-weight: 600;
+  color: darkgray;
 }
 
 .attachmentImg {
@@ -200,4 +209,51 @@ nav {
   background-color: rgba(0, 0, 0, 0);
   border: none;
   font-size: large;
+}
+
+.dwitteBtn:focus {
+  outline: none;
+}
+
+.editContainer {
+  position: relative;
+}
+
+.submitEditBtn {
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.cancelEditBtn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  font-size: large;
+}
+
+.cancelEditBtn:focus,
+.submitEditBtn:focus {
+  outline: none;
+}
+
+.cancelEditBtn:active,
+.submitEditBtn:active,
+.dwitteBtn:active {
+  color: white;
+  background-color: #1da1f2;
+  border-radius: 10px;
+}
+
+.editInput {
+  padding: 2px;
+  font-size: medium;
+  font-weight: bold;
+  border: 2px solid darkgray;
+  color: darkgray;
+}
+
+.editInput:focus {
+  outline: none;
 }

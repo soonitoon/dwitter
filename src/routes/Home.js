@@ -26,7 +26,6 @@ const Home = ({ userObj }) => {
             <Dwitte
               key={dw.id}
               dwitteObj={dw}
-              userName={userObj.displayName}
               isOwner={dw.creatorId === userObj.uid}
             />
           ))}

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { storageService, DBService } from "mybase";
 import { v4 as uuidv4 } from "uuid";
+import { MdAddAPhoto } from "react-icons/md";
 
 const DwitteFactory = ({ userObj }) => {
   const [dwitte, setDwitte] = useState("");
@@ -44,6 +45,7 @@ const DwitteFactory = ({ userObj }) => {
         text: dwitte,
         createdAt: Date.now(),
         creatorId: userObj.uid,
+        creatorName: userObj.displayName,
         attachmentURL,
       };
       await DBService.collection("dwitte").add(dwitteObj);
@@ -73,7 +75,7 @@ const DwitteFactory = ({ userObj }) => {
         <p className="dwitteErrorMsg">{errorMsg}</p>
       </div>
       <label for="fileInput" className="fileUploadBtn">
-        사진
+        <MdAddAPhoto />
       </label>
       <input
         type="file"
