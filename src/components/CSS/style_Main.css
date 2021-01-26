@@ -76,7 +76,8 @@ nav {
 .fileUploadBtn {
   height: 32px;
   width: 50px;
-  background-color: white;
+  background-color: #1da1f2;
+  color: white;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -84,8 +85,8 @@ nav {
 }
 
 .fileUploadBtn:active {
-  background-color: #1da1f2;
-  color: white;
+  background-color: white;
+  color: #1da1f2;
 }
 
 .dwitteInputContainer {

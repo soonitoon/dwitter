@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import AppRouter from "components/Router";
 import { AuthService } from "mybase";
+import "components/CSS/reset.css";
+import "components/CSS/style_Profile.css";
 
 function App() {
   const [init, setInit] = useState(false);
