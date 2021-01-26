@@ -2,7 +2,6 @@ import { DBService } from "mybase";
 import React, { useEffect, useState } from "react";
 import Dwitte from "components/Dwitte";
 import DwitteFactory from "components/DwitteFactory";
-import "components/CSS/style_Main.css";
 
 const Home = ({ userObj }) => {
   const [dwittes, setDwittes] = useState([]);
