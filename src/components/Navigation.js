@@ -7,7 +7,6 @@ import { HiHashtag, HiOutlineCog } from "react-icons/hi";
 const Navigation = ({ userObj }) => {
   const [displayName, setDisplayName] = useState("username");
   useEffect(() => {
-    console.log(userObj);
     if (userObj.displayName) {
       setDisplayName(userObj.displayName);
     }
