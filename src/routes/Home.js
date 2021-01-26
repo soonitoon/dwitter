@@ -7,13 +7,15 @@ const Home = ({ userObj }) => {
   const [dwittes, setDwittes] = useState([]);
 
   useEffect(() => {
-    DBService.collection("dwitte").onSnapshot((snapshot) => {
-      const dwitteArray = snapshot.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data(),
-      }));
-      setDwittes(dwitteArray);
-    });
+    DBService.collection("dwitte")
+      .orderBy("createdAt", "desc")
+      .onSnapshot((snapshot) => {
+        const dwitteArray = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setDwittes(dwitteArray);
+      });
   }, []);
 
   return (
