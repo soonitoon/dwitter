@@ -44,34 +44,32 @@ const Profile = ({ userObj, refreshUserObj }) => {
 
   return (
     <>
-      <div className="profileContainer">
-        <form onSubmit={onSubmit} className="editProfileForm">
-          <input
-            type="text"
-            value={newDisplayName}
-            placeholder="Display name"
-            onChange={onChange}
-            className="userNameInput"
-          />
-          <button type="submit" className="submitNewUserName">
-            update
-          </button>
-        </form>
-        <button onClick={onLogoutClick} className="logOut">
-          log out
-        </button>
-        <div className="myDwitteContainer">
-          {dwitteArray &&
-            dwitteArray.map((dw) => (
-              <Dwitte
-                key={dw.createdAt}
-                dwitteObj={dw}
-                isOwner={dw.creatorId === userObj.uid}
-              />
-            ))}
-        </div>
-      </div>
       <div className="dummy"></div>
+      <form onSubmit={onSubmit} className="edit-profile-form">
+        <input
+          type="text"
+          value={newDisplayName}
+          placeholder="Display name"
+          onChange={onChange}
+          className="new-username-input"
+        />
+        <button type="submit" className="submit-username">
+          수정
+        </button>
+        <button onClick={onLogoutClick} className="logout">
+          logout
+        </button>
+      </form>
+      <div className="dwitte-container">
+        {dwitteArray &&
+          dwitteArray.map((dw) => (
+            <Dwitte
+              key={dw.createdAt}
+              dwitteObj={dw}
+              isOwner={dw.creatorId === userObj.uid}
+            />
+          ))}
+      </div>
     </>
   );
 };

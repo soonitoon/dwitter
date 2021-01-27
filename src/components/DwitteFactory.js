@@ -62,38 +62,40 @@ const DwitteFactory = ({ userObj }) => {
   };
 
   return (
-    <form onSubmit={onSubmit} className="dwitteForm">
-      <div className="dwitteInputContainer">
-        <input
-          value={dwitte}
-          onChange={onChange}
-          type="text"
-          placeholder="What's your mind?"
-          maxLength={120}
-          className="dwitteInput"
-        />
-        <p className="dwitteErrorMsg">{errorMsg}</p>
-      </div>
-      <label for="fileInput" className="fileUploadBtn">
+    <form onSubmit={onSubmit} className="dwitte-form">
+      <input
+        value={dwitte}
+        onChange={onChange}
+        type="text"
+        placeholder="What's your mind?"
+        maxLength={120}
+        className="dwitte-input"
+      />
+      <input type="submit" value="dwitte" className="submit-dwitte" />
+      <label for="fileInput" className="file-upload-btn">
         <MdAddAPhoto />
       </label>
+      <p className="dwitte-error-msg">{errorMsg}</p>
       <input
         type="file"
         accept="image/*"
         onChange={onFileChange}
         id="fileInput"
-        className="fileInput"
+        className="file-input"
       />
       {attachment && (
-        <div className="attachmentContainer">
-          <img src={attachment} width="50px" height="50px" />
-          <br />
-          <button onClick={onClearAttachmentClick} className="clearAttachment">
+        <>
+          <img
+            src={attachment}
+            width="50px"
+            height="50px"
+            className="attach-img"
+          />
+          <button onClick={onClearAttachmentClick} className="delete-img">
             X
           </button>
-        </div>
+        </>
       )}
-      <input type="submit" value="dwitte" className="submitDwitte" />
     </form>
   );
 };

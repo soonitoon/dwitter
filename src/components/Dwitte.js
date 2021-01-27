@@ -37,50 +37,46 @@ const Dwitte = ({ dwitteObj, isOwner, userName }) => {
   return (
     <div className="dwitte">
       {editing ? (
-        <div className="editContainer">
+        <>
           <form onSubmit={onSubmit}>
-            <div className="context">
-              <h4 className="userName">{dwitteObj.creatorName}</h4>
-              <input
-                type="text"
-                placeholder="Edit your dwitte"
-                value={newDwitte}
-                required
-                onChange={onChange}
-                className="editInput"
-              />
-              <button type="submit" className="submitEditBtn">
-                <ImCheckmark />
-              </button>
-            </div>
+            <h4 className="username">{dwitteObj.creatorName}</h4>
+            <input
+              type="text"
+              placeholder="Edit your dwitte"
+              value={newDwitte}
+              required
+              onChange={onChange}
+              className="new-dwitte-input"
+            />
+            <button type="submit" className="submit-new-dwitte">
+              <ImCheckmark />
+            </button>
           </form>
-          <button onClick={toggleEditing} className="cancelEditBtn">
+          <button onClick={toggleEditing} className="cancel-editing">
             <ImCancelCircle />
           </button>
-        </div>
+        </>
       ) : (
         <>
-          <div className="context">
-            <h4 className="userName">{dwitteObj.creatorName}</h4>
-            <h4 className="dwitteText">{dwitteObj.text}</h4>
-          </div>
+          <h4 className="username">{dwitteObj.creatorName}</h4>
+          <h4 className="dwitte-text">{dwitteObj.text}</h4>
           {dwitteObj.attachmentURL && (
             <img
               src={dwitteObj.attachmentURL}
-              width="70px"
-              height="70px"
-              className="attachmentImg"
+              width="110px"
+              height="110px"
+              className="dwitte-image"
             />
           )}
           {isOwner && (
-            <div className="dwitteBtnContainer">
-              <button onClick={onDeleteClick} className="dwitteBtn">
+            <>
+              <button onClick={onDeleteClick} className="delete-dwitte">
                 <BsFillTrashFill />
               </button>
-              <button onClick={toggleEditing} className="dwitteBtn">
+              <button onClick={toggleEditing} className="edit-dwitte">
                 <BsPencilSquare />
               </button>
-            </div>
+            </>
           )}
         </>
       )}

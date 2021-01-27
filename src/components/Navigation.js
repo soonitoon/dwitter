@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "components/CSS/style_Main.css";
-import { IoLogoTwitter } from "react-icons/io5";
-import { HiHashtag, HiOutlineCog } from "react-icons/hi";
+import { HiOutlineCog } from "react-icons/hi";
 
 const Navigation = ({ userObj }) => {
   const [displayName, setDisplayName] = useState("username");
@@ -13,22 +12,18 @@ const Navigation = ({ userObj }) => {
   });
   return (
     <nav>
-      <div className="navContainer">
-        <IoLogoTwitter className="twitteIcon" />
-        <ul className="linkList">
-          <li className="goHome">
-            <HiHashtag className="hashIcon" />
-            <Link to="/" className="link">
-              Home
-            </Link>
-          </li>
-          <li className="goProfile">
-            <HiOutlineCog className="gearIcon" />
-            <Link to="/profile" className="link">
-              {displayName} profile
-            </Link>
-          </li>
-        </ul>
+      <div className="nav-container">
+        <h5 className="home-link">
+          <Link to="/" className="link">
+            Home
+          </Link>
+        </h5>
+        <h5 className="profile-link">
+          <HiOutlineCog className="gear-icon" />
+          <Link to="/profile" className="link profile-name">
+            {displayName}
+          </Link>
+        </h5>
       </div>
     </nav>
   );
