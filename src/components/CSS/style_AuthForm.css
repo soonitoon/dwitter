@@ -1,7 +1,17 @@
-@import url("reset.css");
-
 body {
   overflow: hidden;
+  font-family: sans-serif;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: #f6f6f6 inset;
+  -webkit-text-fill-color: white;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
 }
 
 .AuthContainer {
@@ -72,6 +82,10 @@ body {
   margin-top: 30px;
 }
 
+.emailContainer {
+  position: relative;
+}
+
 .passwordContainer {
   display: flex;
   flex-direction: column;
@@ -131,6 +145,13 @@ body {
 .emailInput,
 .passwordInput:focus {
   outline: none;
+}
+
+.errrorMessage {
+  color: red;
+  position: absolute;
+  bottom: -10px;
+  left: 10px;
 }
 
 .submitAccount {

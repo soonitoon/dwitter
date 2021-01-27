@@ -84,7 +84,7 @@ const AuthForm = () => {
                   className="emailInput"
                 ></input>
               </div>
-              <span>{error}</span>
+              <span className="errrorMessage">{error}</span>
             </div>
             <div className="passwordContainer">
               <div className="passwordInputContainer">
