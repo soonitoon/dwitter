@@ -7,6 +7,19 @@ button:focus {
   outline: none;
 }
 
+input,
+textarea,
+button {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+
+.init {
+  color: #53abee;
+  font-size: 40px;
+}
+
 .dummy {
   margin-top: 80px;
   height: 100%;

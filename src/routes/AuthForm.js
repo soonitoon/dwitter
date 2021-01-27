@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { AuthService } from "mybase";
 import AuthWithSocial from "components/AuthWithSocial";
 import { BsPeople, BsSearch } from "react-icons/bs";
-import { IoChatbubbleOutline, IoLogoTwitter } from "react-icons/io5";
+import { IoLogoTwitter } from "react-icons/io5";
 
 const AuthForm = () => {
   const [error, setError] = useState("");
