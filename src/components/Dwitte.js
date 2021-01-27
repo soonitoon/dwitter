@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { BsFillTrashFill, BsPencilSquare } from "react-icons/bs";
 import { ImCancelCircle, ImCheckmark } from "react-icons/im";
 
-const Dwitte = ({ dwitteObj, isOwner, userName }) => {
+const Dwitte = ({ dwitteObj, isOwner }) => {
   const [editing, setEditing] = useState(false);
   const [newDwitte, setNewDwitte] = useState(dwitteObj.text);
 

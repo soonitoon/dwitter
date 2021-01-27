@@ -13,12 +13,16 @@ const Profile = ({ userObj, refreshUserObj }) => {
   };
 
   const getMyDwittes = async () => {
-    const dwittes = await DBService.collection("dwitte")
+    await DBService.collection("dwitte")
       .where("creatorId", "==", userObj.uid)
       .orderBy("createdAt")
-      .get();
-    const dwitteArray = dwittes.docs.map((doc) => doc.data());
-    setDwitteArray(dwitteArray);
+      .onSnapshot((snapshot) => {
+        const dwitteArray = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setDwitteArray(dwitteArray);
+      });
   };
 
   const onSubmit = async (event) => {
@@ -64,7 +68,7 @@ const Profile = ({ userObj, refreshUserObj }) => {
         {dwitteArray &&
           dwitteArray.map((dw) => (
             <Dwitte
-              key={dw.createdAt}
+              key={dw.id}
               dwitteObj={dw}
               isOwner={dw.creatorId === userObj.uid}
             />
