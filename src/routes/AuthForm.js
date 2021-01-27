@@ -8,7 +8,7 @@ const AuthForm = () => {
   const [error, setError] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [newAccount, setNewAccount] = useState(true);
+  const [newAccount, setNewAccount] = useState(false);
   const toggleAccount = () => {
     setNewAccount((prev) => !prev);
   };
@@ -37,103 +37,62 @@ const AuthForm = () => {
     }
   };
 
-  const onGetBlue = (event) => {
-    event.target.parentNode.classList.add("getBlue");
-  };
-  const onRemoveBlue = (event) => {
-    event.target.parentNode.classList.remove("getBlue");
-  };
-
   return (
     <>
-      <div className="AuthContainer">
-        <div className="leftSide">
-          <IoLogoTwitter className="backgroundIcon" />
-          <div className="textBox">
-            <div className="eachText">
-              <BsSearch className="icon" />
-              <h3>관심사를 팔로우하세요.</h3>
-            </div>
-            <div className="eachText">
-              <BsPeople className="icon" />
-              <h3>
-                사람들이 무엇에 대해 이야기하고 있는지
-                <br />
-                알아보세요.
-              </h3>
-            </div>
-            <div className="eachText">
-              <IoChatbubbleOutline className="icon" />
-              <h3>대화에 참여하세요.</h3>
-            </div>
-          </div>
-        </div>
-        <div className="rightSide">
-          <form onSubmit={onSubmit} className="emailLoginForm">
-            <div className="emailContainer">
-              <div className="emailInputContainer">
-                <p className="emailInputPlaceholder">사용자 이메일</p>
-                <input
-                  name="email"
-                  type="text"
-                  required
-                  value={email}
-                  onChange={onChange}
-                  onFocus={onGetBlue}
-                  onBlur={onRemoveBlue}
-                  className="emailInput"
-                ></input>
-              </div>
-              <span className="errrorMessage">{error}</span>
-            </div>
-            <div className="passwordContainer">
-              <div className="passwordInputContainer">
-                <p className="passwordInputPlaceholder">비밀번호</p>
-                <input
-                  name="password"
-                  type="password"
-                  required
-                  value={password}
-                  onChange={onChange}
-                  onFocus={onGetBlue}
-                  onBlur={onRemoveBlue}
-                  className="passwordInput"
-                ></input>
-              </div>
-              <button onClick={toggleAccount} className="toggle">
-                {newAccount ? "계정이 있나요?" : "계정 만들기"}
-              </button>
-            </div>
-            <input
-              type="submit"
-              className="submitAccount"
-              value={newAccount ? "만들기" : "로그인"}
-            ></input>
-          </form>
-          <div className="rightDown">
-            <IoLogoTwitter className="dwitteIcon" />
-            <h1 className="title">
-              지금 전 세계에서 무슨 일이
-              <br /> 일어나고 있는지 알아보세요.
-            </h1>
-            <AuthWithSocial />
-          </div>
-        </div>
-        <footer className="AuthFooter">
-          <div className="aContainer">
-            <a>맞아요</a>
-            <a>이건</a>
-            <a>footer</a>
-            <a>입니다</a>
-            <a>아무도</a>
-            <a>보지않죠</a>
-            <a>그저</a>
-            <a>자리를</a>
-            <a>묵묵히</a>
-            <a>지킵니다</a>
-          </div>
-        </footer>
+      <IoLogoTwitter className="top-dwitte-icon" />
+      <h1 className="main-title">
+        지금 전 세계에서 무슨 일이
+        <br /> 일어나고 있는지 알아보세요.
+      </h1>
+      <h5 className="sub-title">오늘 드위터에 가입하세요.</h5>
+      <AuthWithSocial />
+      <div className="color-box">
+        <h5 className="color-box-text">
+          <BsSearch className="color-box-icon" />
+          <div>관심사를 팔로우 하세요.</div>
+        </h5>
+        <h5 className="color-box-text">
+          <BsPeople className="color-box-icon" />
+          <di>
+            사람들이 무엇에 대해 이야기하고
+            <br />
+            있는지 알아보세요.
+          </di>
+        </h5>
       </div>
+      <h5 className="make-account-title">혹은, 직접 로그인.</h5>
+      <form onSubmit={onSubmit} className="LoginForm">
+        <input
+          name="email"
+          type="text"
+          required
+          value={email}
+          onChange={onChange}
+          placeholder="example@email.com"
+          className="email-input"
+        ></input>
+        <input
+          name="password"
+          type="password"
+          required
+          value={password}
+          onChange={onChange}
+          placeholder="password"
+          className="password-input"
+        ></input>
+        <input
+          type="submit"
+          className="submit-account"
+          value={newAccount ? "만들기" : "로그인"}
+        ></input>
+        <button onClick={toggleAccount} className="toggle-login">
+          {newAccount ? "계정이 있나요?" : "계정 만들기"}
+        </button>
+      </form>
+      <p className="login-error">{error}</p>
+      <footer className="AuthFooter">
+        <p>트위터 클론코딩 -드위터</p>
+      </footer>
     </>
   );
 };

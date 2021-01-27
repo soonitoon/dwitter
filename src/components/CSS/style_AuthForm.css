@@ -1,259 +1,114 @@
 body {
-  overflow: hidden;
   font-family: sans-serif;
 }
 
-input:-webkit-autofill {
-  -webkit-box-shadow: #f6f6f6 inset;
-  -webkit-text-fill-color: white;
-}
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
-  transition: background-color 5000s ease-in-out 0s;
-}
-
-.AuthContainer {
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  flex-wrap: wrap;
-  align-content: flex-start;
-  z-index: 0;
-}
-
-.leftSide {
-  background-color: #74cafe;
-  height: 93vh;
-  width: 50vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  z-index: -1;
-}
-
-.backgroundIcon {
-  font-size: 1200px;
-  position: absolute;
+.top-dwitte-icon {
   color: #1da1f2;
-  top: -250px;
-  left: -50px;
-  z-index: -2;
+  font-size: 40px;
+  margin: 10px 0 0 10px;
 }
 
-.textBox {
-  margin-left: 60px;
+.main-title {
+  margin: 10px 0 0 10px;
+  font-size: 25px;
+  line-height: 30px;
+  font-weight: bolder;
 }
 
-.eachText {
-  display: flex;
-  align-items: center;
-}
-
-.icon {
-  font-size: 27px;
+.sub-title {
+  margin: 70px 0 0 10px;
   font-weight: bold;
-  color: white;
-  margin: 12px 10px 12px 0;
 }
 
-.eachText h3 {
-  font-size: 20px;
-  font-weight: bold;
-  color: white;
-  margin: 30px 0 30px 0;
-}
-
-.rightSide {
-  background-color: #15202b;
-  height: 93vh;
-  width: 50vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.emailLoginForm {
-  width: 50vw;
-  display: flex;
-  justify-content: center;
-  margin-top: 30px;
-}
-
-.emailContainer {
-  position: relative;
-}
-
-.passwordContainer {
-  display: flex;
-  flex-direction: column;
-}
-
-.toggle {
-  background-color: #15202b;
-  color: #1da1f2;
-  border: none;
-  position: relative;
-}
-
-.toggle:focus {
-  outline: none;
-}
-
-.toggle:hover {
-  text-decoration: underline;
-}
-
-.emailInputContainer,
-.passwordInputContainer {
-  border: 1px solid #3d5466;
-  border-radius: 5px;
-  padding: 10px;
-  color: #3d5466;
-  margin: 0 10px;
-  width: 200px;
-  height: 35px;
-}
-
-.getBlue {
-  border: 3px solid #1da1f2;
-  padding: 8px;
-  color: #1da1f2;
-}
-
-.emailInputPlaceholder,
-.passwordInputPlaceholder {
-  font-weight: lighter;
-}
-
-.passwordInputContainer {
-  margin-bottom: 10px;
-}
-
-.emailInput,
-.passwordInput {
-  background-color: rgba(0, 0, 0, 0);
-  color: white;
-  border: none;
-  font-size: 20px;
-  width: 180px;
-  overflow: hidden;
-}
-
-.emailInput,
-.passwordInput:focus {
-  outline: none;
-}
-
-.errrorMessage {
-  color: red;
-  position: absolute;
-  bottom: -10px;
-  left: 10px;
-}
-
-.submitAccount {
-  border: 3px solid #1da1f2;
-  border-radius: 40px;
-  color: #1da1f2;
-  background-color: rgba(0, 0, 0, 0.3);
-  height: 45px;
-  width: 80px;
-  margin-top: 5.5px;
-  font-size: 15px;
-  font-weight: 600;
-  transition-duration: 0.2s;
-}
-
-.submitAccount:focus {
-  outline: none;
-}
-
-.submitAccount:hover {
-  background-color: rgba(29, 161, 242, 0.2);
-}
-
-.rightDown {
-  margin-top: 100px;
-}
-
-.rightDown .dwitteIcon {
-  font-size: 50px;
-  color: white;
-}
-
-.rightDown .title {
-  color: white;
-  font-size: 28px;
-  font-weight: bold;
-  line-height: 40px;
-  margin: 20px 0 40px 0;
-}
-
-.socialContainer {
-  display: flex;
-  flex-direction: column;
-}
-
-.googleButton,
-.githubButton {
-  border: none;
-  margin: 10px 0;
+.google-login,
+.github-login,
+.email-input,
+.password-input,
+.submit-account,
+.toggle-login {
+  display: block;
   height: 40px;
+  width: 300px;
+  margin: 20px auto 0 auto;
   border-radius: 20px;
-  color: white;
-  font-size: 17px;
+  border: none;
   font-weight: bold;
-  transition-duration: 0.2s;
+  font-size: 15px;
+  background-color: #1da1f2;
+  color: white;
 }
 
-.googleButton:focus,
-.githubButton:focus {
+.google-login:focus,
+.github-login:focus,
+.email-input:focus,
+.password-input:focus,
+.submit-account:focus,
+.toggle-login:focus {
   outline: none;
 }
 
-.googleButton {
-  background-color: #1da1f2;
-}
-
-.googleButton:hover {
-  background-color: rgba(29, 161, 242, 0.8);
-}
-
-.githubButton {
-  background-color: rgba(0, 0, 0, 0);
-  border: 1px solid #1da1f2;
+.github-login,
+.toggle-login {
+  margin: 10px auto 0 auto;
+  border: 2px solid #1da1f2;
+  background-color: white;
   color: #1da1f2;
 }
 
-.githubButton:hover {
-  background-color: rgba(29, 161, 242, 0.2);
+.login-error {
+  color: red;
+  text-align: center;
+  margin-top: 10px;
 }
 
-.socialTitle {
+.color-box {
+  width: 100%;
+  height: 200px;
+  margin: 20px 0;
+  background-color: #1da1f2;
   color: white;
-  font-size: 17px;
   font-weight: bold;
-  margin-bottom: 10px;
+  font-size: 20px;
+  line-height: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
-.AuthFooter {
-  background-color: #15202b;
-  height: 7vh;
-  width: 100vw;
-}
-.aContainer {
-  height: 7vh;
-  margin: auto 0;
-  font-weight: lighter;
-  padding: 0 120px 0 120px;
+.color-box-text {
   display: flex;
-  justify-content: space-around;
-  align-items: center;
-  color: gray;
+  margin: 0 10px;
 }
-.aContainer a {
-  font-size: 13px;
+
+.make-account-title {
+  font-weight: bold;
+  margin: 20px 0 0 10px;
+}
+
+.color-box-icon {
+  margin-right: 10px;
+}
+
+.email-input,
+.password-input {
+  padding: 0 0 0 10px;
+  border: 2px solid #1da1f2;
+  background-color: transparent;
+  color: #1da1f2;
+}
+
+.email-input::placeholder,
+.password-input::placeholder {
+  font-weight: normal;
+  color: lightgray;
+}
+
+footer {
+  height: 80px;
+  background-color: lightgray;
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
 }
