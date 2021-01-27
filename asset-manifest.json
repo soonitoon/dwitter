@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/dwitter/static/css/main.61a6f736.chunk.css",
-    "main.js": "/dwitter/static/js/main.6cb30dfd.chunk.js",
-    "main.js.map": "/dwitter/static/js/main.6cb30dfd.chunk.js.map",
+    "main.css": "/dwitter/static/css/main.5cfcfa3c.chunk.css",
+    "main.js": "/dwitter/static/js/main.9cc30f91.chunk.js",
+    "main.js.map": "/dwitter/static/js/main.9cc30f91.chunk.js.map",
     "runtime-main.js": "/dwitter/static/js/runtime-main.59ddac16.js",
     "runtime-main.js.map": "/dwitter/static/js/runtime-main.59ddac16.js.map",
-    "static/js/2.2b77beb1.chunk.js": "/dwitter/static/js/2.2b77beb1.chunk.js",
-    "static/js/2.2b77beb1.chunk.js.map": "/dwitter/static/js/2.2b77beb1.chunk.js.map",
+    "static/js/2.b3381bfa.chunk.js": "/dwitter/static/js/2.b3381bfa.chunk.js",
+    "static/js/2.b3381bfa.chunk.js.map": "/dwitter/static/js/2.b3381bfa.chunk.js.map",
     "index.html": "/dwitter/index.html",
-    "static/css/main.61a6f736.chunk.css.map": "/dwitter/static/css/main.61a6f736.chunk.css.map",
-    "static/js/2.2b77beb1.chunk.js.LICENSE.txt": "/dwitter/static/js/2.2b77beb1.chunk.js.LICENSE.txt"
+    "static/css/main.5cfcfa3c.chunk.css.map": "/dwitter/static/css/main.5cfcfa3c.chunk.css.map",
+    "static/js/2.b3381bfa.chunk.js.LICENSE.txt": "/dwitter/static/js/2.b3381bfa.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.59ddac16.js",
-    "static/js/2.2b77beb1.chunk.js",
-    "static/css/main.61a6f736.chunk.css",
-    "static/js/main.6cb30dfd.chunk.js"
+    "static/js/2.b3381bfa.chunk.js",
+    "static/css/main.5cfcfa3c.chunk.css",
+    "static/js/main.9cc30f91.chunk.js"
   ]
 }
