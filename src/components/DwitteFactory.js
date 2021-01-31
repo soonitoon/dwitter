@@ -58,7 +58,7 @@ const DwitteFactory = ({ userObj }) => {
   };
 
   const onClearAttachmentClick = () => {
-    setAttachment(null);
+    setAttachment("");
   };
 
   return (
