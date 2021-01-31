@@ -34,7 +34,7 @@ const DwitteFactory = ({ userObj }) => {
     if (dwitte !== "") {
       event.preventDefault();
       let attachmentURL = "";
-      if (attachment != "") {
+      if (attachment !== "") {
         const attachmentRef = storageService
           .ref()
           .child(`${userObj.uid}/${uuidv4()}`);

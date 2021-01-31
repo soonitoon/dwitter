@@ -9,6 +9,7 @@ const AuthForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [newAccount, setNewAccount] = useState(false);
+
   const toggleAccount = () => {
     setNewAccount((prev) => !prev);
   };

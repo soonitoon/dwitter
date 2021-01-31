@@ -3,6 +3,7 @@ import React, { useState } from "react";
 
 const AuthWithSocial = () => {
   const [socialLoginError, SetsocialLoginError] = useState("");
+
   const onSocialClick = async (event) => {
     const {
       target: { name },
