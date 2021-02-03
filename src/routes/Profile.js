@@ -4,16 +4,17 @@ import { useHistory } from "react-router-dom";
 import Dwitte from "components/Dwitte";
 
 const Profile = ({ userObj, refreshUserObj }) => {
-  const history = useHistory();
   const [dwitteArray, setDwitteArray] = useState([]);
   const [newDisplayName, setNewDisplayName] = useState(userObj.displayName);
+  const history = useHistory();
+
   const onLogoutClick = () => {
     AuthService.signOut();
     history.push("/");
   };
 
-  const getMyDwittes = async () => {
-    await DBService.collection("dwitte")
+  const getMyDwittes = () => {
+    DBService.collection("dwitte")
       .where("creatorId", "==", userObj.uid)
       .orderBy("createdAt")
       .onSnapshot((snapshot) => {
