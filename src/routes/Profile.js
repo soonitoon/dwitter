@@ -49,7 +49,6 @@ const Profile = ({ userObj, refreshUserObj }) => {
 
   return (
     <>
-      <div className="dummy"></div>
       <form onSubmit={onSubmit} className="edit-profile-form">
         <input
           type="text"

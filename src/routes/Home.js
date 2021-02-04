@@ -20,7 +20,6 @@ const Home = ({ userObj }) => {
 
   return (
     <div className="dwitte-container">
-      <div className="dummy"></div>
       <DwitteFactory userObj={userObj} />
       {dwittes.map((dw) => (
         <Dwitte
