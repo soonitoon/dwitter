@@ -8,23 +8,21 @@ import Profile from "routes/Profile";
 const AppRouter = ({ isLoggedIn, userObj, refreshUserObj }) => {
   return (
     <Router>
-      {isLoggedIn && <Navigation userObj={userObj} />}
-      <Switch>
-        {isLoggedIn ? (
-          <>
-            <Route exact path="/">
-              <Home userObj={userObj} />
-            </Route>
-            <Route exact path="/profile">
-              <Profile userObj={userObj} refreshUserObj={refreshUserObj} />
-            </Route>
-          </>
-        ) : (
+      {isLoggedIn ? (
+        <>
+          <Navigation userObj={userObj} />
           <Route exact path="/">
-            <AuthForm />
+            <Home userObj={userObj} />
           </Route>
-        )}
-      </Switch>
+          <Route path="/profile">
+            <Profile userObj={userObj} refreshUserObj={refreshUserObj} />
+          </Route>
+        </>
+      ) : (
+        <Route path="/">
+          <AuthForm />
+        </Route>
+      )}
     </Router>
   );
 };
