@@ -1,5 +1,5 @@
 import React from "react";
-import { HashRouter as Router, Route, Switch } from "react-router-dom";
+import { HashRouter as Router, Route } from "react-router-dom";
 import AuthForm from "routes/AuthForm";
 import Home from "routes/Home";
 import Navigation from "components/Navigation";
