@@ -28,3 +28,11 @@ visite my blog📰 https://han.gl/Aq78Q
 ## Screeshots
 
 ![](./README_IMG/main_image.jpg)
+
+## Requirement
+
+if you want to run this code on your computer, you need **npm**.
+
+Linux: `sudo apt-get install npm`
+
+Windows: visite https://nodejs.org/ko/
