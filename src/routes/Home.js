@@ -6,7 +6,7 @@ import DwitteFactory from "components/DwitteFactory";
 const Home = ({ userObj }) => {
   const [dwittes, setDwittes] = useState([]);
 
-  useEffect(() => {
+  const getDwittes = () => {
     DBService.collection("dwitte")
       .orderBy("createdAt", "desc")
       .onSnapshot((snapshot) => {
@@ -16,7 +16,9 @@ const Home = ({ userObj }) => {
         }));
         setDwittes(dwitteArray);
       });
-  }, []);
+  };
+
+  useEffect(getDwittes, []);
 
   return (
     <div className="dwitte-container">
