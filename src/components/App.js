@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import AppRouter from "components/Router";
+import Loading from "components/Loading";
 import { AuthService } from "mybase";
-import { IoLogoTwitter } from "react-icons/io5";
 import "components/CSS/reset.css";
-import "components/CSS/style_Profile.css";
-import "components/CSS/style_Main.css";
+import "components/CSS/style_Loading.css";
 import "components/CSS/style_AuthForm.css";
+import "components/CSS/style_Main.css";
+import "components/CSS/style_Profile.css";
 
 function App() {
   const [init, setInit] = useState(false);
@@ -49,7 +50,7 @@ function App() {
           userObj={userObj}
         />
       ) : (
-        <IoLogoTwitter className="init" />
+        <Loading />
       )}
     </>
   );
