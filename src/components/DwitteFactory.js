@@ -90,6 +90,7 @@ const DwitteFactory = ({ userObj }) => {
             width="50px"
             height="50px"
             className="attach-img"
+            alt="img"
           />
           <button onClick={onClearAttachmentClick} className="delete-img">
             X
