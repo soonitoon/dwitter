@@ -46,3 +46,7 @@ Run this command: `$ npm i`
 ### 3. Get env
 
 You need env file containing keys to access Google Firebase services. Contect me: soonitoon@gmail.com
+
+## License
+
+**MIT**
