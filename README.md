@@ -4,7 +4,7 @@ Cloning Twitter with **React** and **Firebase**.
 
 Try it now! https://soonitoon.github.io/dwitter (for mobile)
 
-visite my blog📰 https://han.gl/Aq78Q
+Visite my blog📰 https://han.gl/Aq78Q
 
 ## You can...
 
@@ -33,7 +33,7 @@ visite my blog📰 https://han.gl/Aq78Q
 
 ### 1. Install npm
 
-if you want to run this code on your computer, you need **npm**.
+If you want to run this code on your computer, you need **npm**.
 
 - Linux: `$ sudo apt-get install npm`
 - Windows: visite https://nodejs.org/ko
