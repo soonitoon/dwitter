@@ -45,7 +45,7 @@ const Profile = ({ userObj, refreshUserObj }) => {
 
   useEffect(() => {
     getMyDwittes();
-  }, []);
+  });
 
   return (
     <>
