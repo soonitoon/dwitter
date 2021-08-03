@@ -72,7 +72,7 @@ const DwitteFactory = ({ userObj }) => {
         className="dwitte-input"
       />
       <input type="submit" value="dwitte" className="submit-dwitte" />
-      <label for="fileInput" className="file-upload-btn">
+      <label htmlFor="fileInput" className="file-upload-btn">
         <MdAddAPhoto />
       </label>
       <p className="dwitte-error-msg">{errorMsg}</p>
