@@ -14,7 +14,7 @@ const Profile = ({ userObj, refreshUserObj }) => {
   };
 
   const getMyDwittes = () => {
-    DBService.collection("dwitte")
+    const unsubscribe = DBService.collection("dwitte")
       .where("creatorId", "==", userObj.uid)
       .orderBy("createdAt")
       .onSnapshot((snapshot) => {
@@ -24,6 +24,7 @@ const Profile = ({ userObj, refreshUserObj }) => {
         }));
         setDwitteArray(dwitteArray);
       });
+    return unsubscribe;
   };
 
   const onSubmit = async (event) => {
@@ -44,7 +45,10 @@ const Profile = ({ userObj, refreshUserObj }) => {
   };
 
   useEffect(() => {
-    getMyDwittes();
+    const unsubscribe = getMyDwittes();
+    return () => {
+      unsubscribe();
+    };
   });
 
   return (

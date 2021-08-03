@@ -7,7 +7,7 @@ const Home = ({ userObj }) => {
   const [dwittes, setDwittes] = useState([]);
 
   const getDwittes = () => {
-    DBService.collection("dwitte")
+    const unsubscribe = DBService.collection("dwitte")
       .orderBy("createdAt", "desc")
       .onSnapshot((snapshot) => {
         const dwitteArray = snapshot.docs.map((doc) => ({
@@ -16,9 +16,15 @@ const Home = ({ userObj }) => {
         }));
         setDwittes(dwitteArray);
       });
+    return unsubscribe;
   };
 
-  useEffect(getDwittes, []);
+  useEffect(() => {
+    const unsubscribe = getDwittes();
+    return () => {
+      unsubscribe();
+    };
+  });
 
   return (
     <div className="dwitte-container">
