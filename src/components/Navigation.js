@@ -9,7 +9,7 @@ const Navigation = ({ userObj }) => {
     if (userObj.displayName) {
       setDisplayName(userObj.displayName);
     }
-  });
+  }, [userObj.displayName]);
   return (
     <nav>
       <div className="nav-container">
