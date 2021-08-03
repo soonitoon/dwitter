@@ -66,6 +66,7 @@ const Dwitte = ({ dwitteObj, isOwner }) => {
               width="110px"
               height="110px"
               className="dwitte-image"
+              alt="img"
             />
           )}
           {isOwner && (
