@@ -50,3 +50,24 @@ You need env file containing keys to access Google Firebase services. Contect me
 ## License
 
 **MIT**
+
+## Supported browsers list
+
+[x] Here is supported browsers list now:
+[x] and_chr 92
+[x] and_uc 12.12
+[x] android 4.4.3-4.4.4
+[x] chrome 91
+[x] chrome 90
+[x] chrome 89
+[x]edge 91
+[x]firefox 89
+[x]firefox 88
+[x]ios_saf 14.5-14.7
+[x]ios_saf 14.0-14.4
+[x]ios_saf 13.4-13.7
+[x]opera 76
+[x]safari 14.1
+[x]safari 14
+[x]safari 13.1
+[x]samsung 14.0
