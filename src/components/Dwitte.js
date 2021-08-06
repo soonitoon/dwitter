@@ -11,7 +11,9 @@ const Dwitte = ({ dwitteObj, isOwner }) => {
     const ok = window.confirm("Are you sure?");
     if (ok) {
       await DBService.doc(`dwitte/${dwitteObj.id}`).delete();
-      await storageService.refFromURL(dwitteObj.attachmentURL).delete();
+      if (dwitteObj.attachmentURL) {
+        await storageService.refFromURL(dwitteObj.attachmentURL).delete();
+      }
     }
   };
 
