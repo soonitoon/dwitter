@@ -24,7 +24,7 @@ const Home = ({ userObj }) => {
     return () => {
       unsubscribe();
     };
-  });
+  }, []);
 
   return (
     <div className="dwitte-container">

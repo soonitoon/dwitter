@@ -49,7 +49,7 @@ const Profile = ({ userObj, refreshUserObj }) => {
     return () => {
       unsubscribe();
     };
-  });
+  }, []);
 
   return (
     <>
