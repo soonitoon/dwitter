@@ -53,7 +53,7 @@ You need env file containing keys to access Google Firebase services. Contect me
 
 ## Supported browsers list
 
-- [x] Here is supported browsers list now:
+Here is supported browsers list now:
 - [x] and_chr 92
 - [x] and_uc 12.12
 - [x] android 4.4.3-4.4.4
