@@ -54,11 +54,11 @@ const AuthForm = () => {
         </h5>
         <h5 className="color-box-text">
           <BsPeople className="color-box-icon" />
-          <di>
+          <div>
             사람들이 무엇에 대해 이야기하고
             <br />
             있는지 알아보세요.
-          </di>
+          </div>
         </h5>
       </div>
       <h5 className="make-account-title">혹은, 직접 로그인.</h5>
