@@ -34,6 +34,7 @@ const Home = ({ userObj }) => {
           key={dw.id}
           dwitteObj={dw}
           isOwner={dw.creatorId === userObj.uid}
+          currentUser={userObj}
         />
       ))}
     </div>

@@ -1,9 +1,9 @@
-import { DBService, storageService } from "mybase";
+import { DBService, storageService, firebaseInstance } from "mybase";
 import React, { useState } from "react";
 import { BsFillTrashFill, BsPencilSquare } from "react-icons/bs";
 import { ImCancelCircle, ImCheckmark } from "react-icons/im";
 
-const Dwitte = ({ dwitteObj, isOwner }) => {
+const Dwitte = ({ dwitteObj, isOwner, currentUser }) => {
   const [editing, setEditing] = useState(false);
   const [newDwitte, setNewDwitte] = useState(dwitteObj.text);
 
@@ -34,6 +34,16 @@ const Dwitte = ({ dwitteObj, isOwner }) => {
       target: { value },
     } = event;
     setNewDwitte(value);
+  };
+
+  const onLikeClick = async () => {
+    await DBService.collection("likeDwittes")
+      .doc(currentUser.uid)
+      .update({
+        likeDwittes: firebaseInstance.firestore.FieldValue.arrayUnion(
+          dwitteObj.id
+        ),
+      });
   };
 
   return (
@@ -71,6 +81,7 @@ const Dwitte = ({ dwitteObj, isOwner }) => {
               alt="img"
             />
           )}
+          <button onClick={onLikeClick}>Like</button>
           {isOwner && (
             <>
               <button onClick={onDeleteClick} className="delete-dwitte">
