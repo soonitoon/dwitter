@@ -74,7 +74,9 @@ const Profile = ({ userObj, refreshUserObj }) => {
             <Dwitte
               key={dw.id}
               dwitteObj={dw}
+              isUserLike={dw.likeUsers.includes(userObj.uid)}
               isOwner={dw.creatorId === userObj.uid}
+              currentUser={userObj}
             />
           ))}
       </div>
