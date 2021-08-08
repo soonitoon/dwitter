@@ -47,6 +47,7 @@ const DwitteFactory = ({ userObj }) => {
         creatorId: userObj.uid,
         creatorName: userObj.displayName,
         attachmentURL,
+        likeCount: 0,
       };
       await DBService.collection("dwitte").add(dwitteObj);
       setDwitte("");
