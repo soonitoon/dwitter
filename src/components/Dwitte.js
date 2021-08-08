@@ -3,9 +3,10 @@ import React, { useState } from "react";
 import { BsFillTrashFill, BsPencilSquare } from "react-icons/bs";
 import { ImCancelCircle, ImCheckmark } from "react-icons/im";
 
-const Dwitte = ({ dwitteObj, isOwner, currentUser }) => {
+const Dwitte = ({ dwitteObj, isOwner, currentUser, isUserLike }) => {
   const [editing, setEditing] = useState(false);
   const [newDwitte, setNewDwitte] = useState(dwitteObj.text);
+  const [isLike, setIsLike] = useState(isUserLike);
 
   const onDeleteClick = async () => {
     const ok = window.confirm("Are you sure?");
@@ -36,14 +37,25 @@ const Dwitte = ({ dwitteObj, isOwner, currentUser }) => {
     setNewDwitte(value);
   };
 
-  const onLikeClick = async () => {
-    await DBService.collection("likeDwittes")
-      .doc(currentUser.uid)
-      .update({
-        likeDwittes: firebaseInstance.firestore.FieldValue.arrayUnion(
-          dwitteObj.id
+  const onLikeClick = () => {
+    const documentRef = DBService.collection("dwitte").doc(dwitteObj.id);
+    if (isLike === false) {
+      documentRef.update({
+        likeUsers: firebaseInstance.firestore.FieldValue.arrayUnion(
+          currentUser.uid
         ),
+        likeCount: firebaseInstance.firestore.FieldValue.increment(1),
       });
+      setIsLike(true);
+    } else {
+      documentRef.update({
+        likeUsers: firebaseInstance.firestore.FieldValue.arrayRemove(
+          currentUser.uid
+        ),
+        likeCount: firebaseInstance.firestore.FieldValue.increment(-1),
+      });
+      setIsLike(false);
+    }
   };
 
   return (
@@ -81,7 +93,8 @@ const Dwitte = ({ dwitteObj, isOwner, currentUser }) => {
               alt="img"
             />
           )}
-          <button onClick={onLikeClick}>Like</button>
+          <button onClick={onLikeClick}>{isLike ? "unLike" : "Like"}</button>
+          <p>{dwitteObj.likeCount}</p>
           {isOwner && (
             <>
               <button onClick={onDeleteClick} className="delete-dwitte">
