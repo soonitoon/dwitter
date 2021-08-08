@@ -2,6 +2,7 @@ import { DBService, storageService, firebaseInstance } from "mybase";
 import React, { useState } from "react";
 import { BsFillTrashFill, BsPencilSquare } from "react-icons/bs";
 import { ImCancelCircle, ImCheckmark } from "react-icons/im";
+import { HiThumbUp, HiOutlineThumbUp } from "react-icons/hi";
 
 const Dwitte = ({ dwitteObj, isOwner, currentUser, isUserLike }) => {
   const [editing, setEditing] = useState(false);
@@ -93,7 +94,9 @@ const Dwitte = ({ dwitteObj, isOwner, currentUser, isUserLike }) => {
               alt="img"
             />
           )}
-          <button onClick={onLikeClick}>{isLike ? "unLike" : "Like"}</button>
+          <button onClick={onLikeClick}>
+            {isLike ? <HiThumbUp /> : <HiOutlineThumbUp />}
+          </button>
           <p>{dwitteObj.likeCount}</p>
           {isOwner && (
             <>
