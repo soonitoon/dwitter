@@ -94,10 +94,12 @@ const Dwitte = ({ dwitteObj, isOwner, currentUser, isUserLike }) => {
               alt="img"
             />
           )}
-          <button onClick={onLikeClick}>
-            {isLike ? <HiThumbUp /> : <HiOutlineThumbUp />}
-          </button>
-          <p>{dwitteObj.likeCount}</p>
+          <div className="like-container">
+            <button onClick={onLikeClick} className="like-button">
+              {isLike ? <HiThumbUp /> : <HiOutlineThumbUp />}
+            </button>
+            <p className="like-count">{dwitteObj.likeCount}</p>
+          </div>
           {isOwner && (
             <>
               <button onClick={onDeleteClick} className="delete-dwitte">
