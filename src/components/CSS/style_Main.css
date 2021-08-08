@@ -196,3 +196,23 @@ button {
   color: gray;
   border: 2px solid #53abee;
 }
+
+.like-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.like-button {
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+  color: #53abee;
+  padding: 0;
+}
+
+.like-count {
+  font-size: 20px;
+  color: #53abee;
+}
