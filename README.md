@@ -101,3 +101,5 @@ New feature:
 Bug fix:
 
 - Some small bug fix
+
+release: https://github.com/soonitoon/dwitter/releases/tag/v1.2.0
