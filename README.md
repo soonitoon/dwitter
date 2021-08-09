@@ -54,6 +54,7 @@ You need env file containing keys to access Google Firebase services. Contect me
 ## Supported browsers list
 
 Here is supported browsers list now:
+
 - [x] and_chr 92
 - [x] and_uc 12.12
 - [x] android 4.4.3-4.4.4
@@ -71,3 +72,32 @@ Here is supported browsers list now:
 - [x] safari 14
 - [x] safari 13.1
 - [x] samsung 14.0
+
+## Change log
+
+### v1.0.0
+
+First version of dwitter!
+
+release: https://github.com/soonitoon/dwitter/releases/tag/v1.0.0
+
+### v1.0.1
+
+Bug fix:
+
+- Supported browsers list was changed.
+- Issue that cannot delete no-image dwitte was fixed.
+- Memory-leak issue was fixed.
+- Some small bugs were fixed.
+
+release: https://github.com/soonitoon/dwitter/releases/tag/v1.0.1
+
+### v1.2.0
+
+New feature:
+
+- You can push Like👍 button on friend's post!
+
+Bug fix:
+
+- Some small bug fix
