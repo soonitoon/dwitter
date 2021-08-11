@@ -12,6 +12,7 @@ Visite my blog📰 https://han.gl/Aq78Q
 2. Edit✍️ or delete your dwitte.
 3. Edit your user name.💁
 4. See friend's dwitte in real-time!🔥
+5. Hit the like button on your friend's dwitte👍
 
 ![](README_IMG/dwitte_image.gif)
 
