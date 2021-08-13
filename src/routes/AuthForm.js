@@ -50,6 +50,8 @@ const AuthForm = () => {
         errorMessage = "존재하지 않는 이메일이에요.";
       } else if (errorCode === "auth/wrong-password") {
         errorMessage = "잘못된 비밀번호에요.";
+      } else {
+        errorMessage = "알 수 없는 오류가 발생했어요.";
       }
       setError(errorMessage);
     }
