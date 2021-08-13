@@ -34,7 +34,24 @@ const AuthForm = () => {
         await AuthService.signInWithEmailAndPassword(email, password);
       }
     } catch (error) {
-      setError(error.message);
+      const errorCode = error.code;
+      let errorMessage;
+      if (errorCode === "auth/email-already-in-use") {
+        errorMessage = "사용중인 이메일이에요.";
+      } else if (errorCode === "auth/invalid-email") {
+        errorMessage = "이메일 주소를 정확히 입력해주세요.";
+      } else if (errorCode === "auth/operation-not-allowed") {
+        errorMessage = "사용할 수 없는 이메일 혹은 비밀번호에요.";
+      } else if (errorCode === "auth/weak-password") {
+        errorMessage = "비밀번호가 너무 약해요.";
+      } else if (errorCode === "auth/user-disabled") {
+        errorMessage = "사용 중지된 계정이에요.";
+      } else if (errorCode === "auth/user-not-found") {
+        errorMessage = "존재하지 않는 이메일이에요.";
+      } else if (errorCode === "auth/wrong-password") {
+        errorMessage = "잘못된 비밀번호에요.";
+      }
+      setError(errorMessage);
     }
   };
 
